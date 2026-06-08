@@ -1,0 +1,19 @@
+version: "3"
+
+services:
+  back-end:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+
+  front-end:
+    build:
+      context: ./
+      dockerfile: front-end.Dockerfile
+
+  proxy:
+    build:
+      context: ./proxy
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"

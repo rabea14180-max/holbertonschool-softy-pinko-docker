@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Softy Pinko</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <header>
+        <h1>Softy Pinko</h1>
+    </header>
+    <main>
+        <p id="api-message">Loading...</p>
+    </main>
+    <script>
+        fetch("http://localhost/api/hello")
+            .then(res => res.text())
+            .then(data => {
+                document.getElementById("api-message").textContent = data;
+            })
+            .catch(() => {
+                document.getElementById("api-message").textContent = "Error connecting to API";
+            });
+    </script>
+</body>
+</html>
